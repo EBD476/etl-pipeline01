@@ -1,0 +1,559 @@
+"20-Dec-22 09:48:55" - root - INFO - Oracle To HDFS is Started ...
+"20-Dec-22 09:48:55" - root - INFO - main() is Started...
+"20-Dec-22 09:48:55" - create_objects - INFO - get_spark_object is started with 3 Cores and 6G Memory.
+"20-Dec-22 09:49:09" - create_objects - INFO - Spark Object is created ...
+"20-Dec-22 09:49:09" - run_data_ingest - INFO - oracle_read_files is Started ...
+"20-Dec-22 09:49:12" - run_data_ingest - INFO - The input File is loaded to the data frame. The load_files() Function is completed.
+"20-Dec-22 09:49:12" - root - ERROR - Error Occured in the main() method. Please check the Stack Trace to go to the respective module and fix it.cannot access local variable 'train_data' where it is not associated with a value
+Traceback (most recent call last):
+  File "/home/hadoop/py_projects/pipeline/pipeline/bin/oracle_to_hdfs.py", line 18, in main
+    nur_data =  oracle_read_files(spark=spark, query="SELECT * FROM NOOR.ITXN",
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hadoop/py_projects/pipeline/pipeline/bin/run_data_ingest.py", line 39, in oracle_read_files
+    return train_data, test_data
+           ^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'train_data' where it is not associated with a value
+"20-Dec-22 09:51:10" - root - INFO - Oracle To HDFS is Started ...
+"20-Dec-22 09:51:10" - root - INFO - main() is Started...
+"20-Dec-22 09:51:10" - create_objects - INFO - get_spark_object is started with 3 Cores and 6G Memory.
+"20-Dec-22 09:51:23" - create_objects - INFO - Spark Object is created ...
+"20-Dec-22 09:51:23" - run_data_ingest - INFO - oracle_read_files is Started ...
+"20-Dec-22 09:51:24" - run_data_ingest - INFO - The input File is loaded to the data frame. The load_files() Function is completed.
+"20-Dec-22 09:51:24" - run_data_extraction - INFO - Extraction - extract_files() is started...
+"20-Dec-22 10:52:44" - run_data_extraction - INFO - Extraction = extract_files() is completed...
+"20-Dec-22 10:52:44" - root - INFO - Oracle to HDFS is Completed.
+"03-Jan-23 11:47:12" - root - INFO - Oracle To HDFS is Started ...
+"03-Jan-23 11:47:12" - root - INFO - main() is Started...
+"03-Jan-23 11:47:12" - create_objects - INFO - get_spark_object is started with 3 Cores and 6G Memory.
+"03-Jan-23 11:47:25" - create_objects - INFO - Spark Object is created ...
+"03-Jan-23 11:47:25" - run_data_ingest - INFO - oracle_read_files is Started ...
+"03-Jan-23 11:47:27" - run_data_ingest - INFO - The input File is loaded to the data frame. The load_files() Function is completed.
+"03-Jan-23 11:47:27" - run_data_extraction - INFO - Extraction - extract_files() is started...
+"03-Jan-23 12:40:04" - run_data_extraction - INFO - Extraction = extract_files() is completed...
+"03-Jan-23 12:40:04" - root - INFO - Oracle to HDFS is Completed.
+"27-Nov-23 15:32:04" - create_objects - INFO - get_spark_object is started with 3 Cores and 7G Memory.
+"27-Nov-23 15:32:06" - create_objects - ERROR - Error in the method - get_spark_object(). Please check the Stack Trace.An error occurred while calling None.org.apache.spark.api.java.JavaSparkContext.
+: org.apache.spark.SparkException: The number of cores per executor (=3) has to be >= the number of cpus per task = 6.
+	at org.apache.spark.resource.ResourceUtils$.validateTaskCpusLargeEnough(ResourceUtils.scala:404)
+	at org.apache.spark.resource.ResourceProfile.calculateTasksAndLimitingResource(ResourceProfile.scala:169)
+	at org.apache.spark.resource.ResourceProfile.$anonfun$limitingResource$1(ResourceProfile.scala:139)
+	at scala.Option.getOrElse(Option.scala:189)
+	at org.apache.spark.resource.ResourceProfile.limitingResource(ResourceProfile.scala:138)
+	at org.apache.spark.resource.ResourceProfileManager.addResourceProfile(ResourceProfileManager.scala:93)
+	at org.apache.spark.resource.ResourceProfileManager.<init>(ResourceProfileManager.scala:49)
+	at org.apache.spark.SparkContext.<init>(SparkContext.scala:449)
+	at org.apache.spark.api.java.JavaSparkContext.<init>(JavaSparkContext.scala:58)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:247)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:357)
+	at py4j.Gateway.invoke(Gateway.java:238)
+	at py4j.commands.ConstructorCommand.invokeConstructor(ConstructorCommand.java:80)
+	at py4j.commands.ConstructorCommand.execute(ConstructorCommand.java:69)
+	at py4j.GatewayConnection.run(GatewayConnection.java:238)
+	at java.lang.Thread.run(Thread.java:750)
+Traceback (most recent call last):
+  File "/home/hadoop/projects/mahzoon/pipeline/pipeline/bin/create_objects.py", line 35, in get_spark_object
+    spark = SparkSession.builder.config(conf=conf).getOrCreate()
+  File "/home/hadoop/test_env/lib64/python3.9/site-packages/pyspark/sql/session.py", line 497, in getOrCreate
+    sc = SparkContext.getOrCreate(sparkConf)
+  File "/home/hadoop/test_env/lib64/python3.9/site-packages/pyspark/context.py", line 515, in getOrCreate
+    SparkContext(conf=conf or SparkConf())
+  File "/home/hadoop/test_env/lib64/python3.9/site-packages/pyspark/context.py", line 203, in __init__
+    self._do_init(
+  File "/home/hadoop/test_env/lib64/python3.9/site-packages/pyspark/context.py", line 296, in _do_init
+    self._jsc = jsc or self._initialize_context(self._conf._jconf)
+  File "/home/hadoop/test_env/lib64/python3.9/site-packages/pyspark/context.py", line 421, in _initialize_context
+    return self._jvm.JavaSparkContext(jconf)
+  File "/home/hadoop/test_env/lib64/python3.9/site-packages/py4j/java_gateway.py", line 1587, in __call__
+    return_value = get_return_value(
+  File "/home/hadoop/test_env/lib64/python3.9/site-packages/py4j/protocol.py", line 326, in get_return_value
+    raise Py4JJavaError(
+py4j.protocol.Py4JJavaError: An error occurred while calling None.org.apache.spark.api.java.JavaSparkContext.
+: org.apache.spark.SparkException: The number of cores per executor (=3) has to be >= the number of cpus per task = 6.
+	at org.apache.spark.resource.ResourceUtils$.validateTaskCpusLargeEnough(ResourceUtils.scala:404)
+	at org.apache.spark.resource.ResourceProfile.calculateTasksAndLimitingResource(ResourceProfile.scala:169)
+	at org.apache.spark.resource.ResourceProfile.$anonfun$limitingResource$1(ResourceProfile.scala:139)
+	at scala.Option.getOrElse(Option.scala:189)
+	at org.apache.spark.resource.ResourceProfile.limitingResource(ResourceProfile.scala:138)
+	at org.apache.spark.resource.ResourceProfileManager.addResourceProfile(ResourceProfileManager.scala:93)
+	at org.apache.spark.resource.ResourceProfileManager.<init>(ResourceProfileManager.scala:49)
+	at org.apache.spark.SparkContext.<init>(SparkContext.scala:449)
+	at org.apache.spark.api.java.JavaSparkContext.<init>(JavaSparkContext.scala:58)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:247)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:357)
+	at py4j.Gateway.invoke(Gateway.java:238)
+	at py4j.commands.ConstructorCommand.invokeConstructor(ConstructorCommand.java:80)
+	at py4j.commands.ConstructorCommand.execute(ConstructorCommand.java:69)
+	at py4j.GatewayConnection.run(GatewayConnection.java:238)
+	at java.lang.Thread.run(Thread.java:750)
+
+"27-Nov-23 15:32:28" - create_objects - INFO - get_spark_object is started with 3 Cores and 7G Memory.
+"27-Nov-23 15:32:28" - create_objects - ERROR - Error in the method - get_spark_object(). Please check the Stack Trace.An error occurred while calling None.org.apache.spark.api.java.JavaSparkContext.
+: org.apache.spark.SparkException: The number of cores per executor (=3) has to be >= the number of cpus per task = 6.
+	at org.apache.spark.resource.ResourceUtils$.validateTaskCpusLargeEnough(ResourceUtils.scala:404)
+	at org.apache.spark.resource.ResourceProfile.calculateTasksAndLimitingResource(ResourceProfile.scala:169)
+	at org.apache.spark.resource.ResourceProfile.$anonfun$limitingResource$1(ResourceProfile.scala:139)
+	at scala.Option.getOrElse(Option.scala:189)
+	at org.apache.spark.resource.ResourceProfile.limitingResource(ResourceProfile.scala:138)
+	at org.apache.spark.resource.ResourceProfileManager.addResourceProfile(ResourceProfileManager.scala:93)
+	at org.apache.spark.resource.ResourceProfileManager.<init>(ResourceProfileManager.scala:49)
+	at org.apache.spark.SparkContext.<init>(SparkContext.scala:449)
+	at org.apache.spark.api.java.JavaSparkContext.<init>(JavaSparkContext.scala:58)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:247)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:357)
+	at py4j.Gateway.invoke(Gateway.java:238)
+	at py4j.commands.ConstructorCommand.invokeConstructor(ConstructorCommand.java:80)
+	at py4j.commands.ConstructorCommand.execute(ConstructorCommand.java:69)
+	at py4j.GatewayConnection.run(GatewayConnection.java:238)
+	at java.lang.Thread.run(Thread.java:750)
+Traceback (most recent call last):
+  File "/home/hadoop/projects/mahzoon/pipeline/pipeline/bin/create_objects.py", line 35, in get_spark_object
+    spark = SparkSession.builder.config(conf=conf).getOrCreate()
+  File "/home/hadoop/test_env/lib64/python3.9/site-packages/pyspark/sql/session.py", line 497, in getOrCreate
+    sc = SparkContext.getOrCreate(sparkConf)
+  File "/home/hadoop/test_env/lib64/python3.9/site-packages/pyspark/context.py", line 515, in getOrCreate
+    SparkContext(conf=conf or SparkConf())
+  File "/home/hadoop/test_env/lib64/python3.9/site-packages/pyspark/context.py", line 203, in __init__
+    self._do_init(
+  File "/home/hadoop/test_env/lib64/python3.9/site-packages/pyspark/context.py", line 296, in _do_init
+    self._jsc = jsc or self._initialize_context(self._conf._jconf)
+  File "/home/hadoop/test_env/lib64/python3.9/site-packages/pyspark/context.py", line 421, in _initialize_context
+    return self._jvm.JavaSparkContext(jconf)
+  File "/home/hadoop/test_env/lib64/python3.9/site-packages/py4j/java_gateway.py", line 1587, in __call__
+    return_value = get_return_value(
+  File "/home/hadoop/test_env/lib64/python3.9/site-packages/py4j/protocol.py", line 326, in get_return_value
+    raise Py4JJavaError(
+py4j.protocol.Py4JJavaError: An error occurred while calling None.org.apache.spark.api.java.JavaSparkContext.
+: org.apache.spark.SparkException: The number of cores per executor (=3) has to be >= the number of cpus per task = 6.
+	at org.apache.spark.resource.ResourceUtils$.validateTaskCpusLargeEnough(ResourceUtils.scala:404)
+	at org.apache.spark.resource.ResourceProfile.calculateTasksAndLimitingResource(ResourceProfile.scala:169)
+	at org.apache.spark.resource.ResourceProfile.$anonfun$limitingResource$1(ResourceProfile.scala:139)
+	at scala.Option.getOrElse(Option.scala:189)
+	at org.apache.spark.resource.ResourceProfile.limitingResource(ResourceProfile.scala:138)
+	at org.apache.spark.resource.ResourceProfileManager.addResourceProfile(ResourceProfileManager.scala:93)
+	at org.apache.spark.resource.ResourceProfileManager.<init>(ResourceProfileManager.scala:49)
+	at org.apache.spark.SparkContext.<init>(SparkContext.scala:449)
+	at org.apache.spark.api.java.JavaSparkContext.<init>(JavaSparkContext.scala:58)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:247)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:357)
+	at py4j.Gateway.invoke(Gateway.java:238)
+	at py4j.commands.ConstructorCommand.invokeConstructor(ConstructorCommand.java:80)
+	at py4j.commands.ConstructorCommand.execute(ConstructorCommand.java:69)
+	at py4j.GatewayConnection.run(GatewayConnection.java:238)
+	at java.lang.Thread.run(Thread.java:750)
+
+"27-Nov-23 15:32:41" - create_objects - INFO - get_spark_object is started with 3 Cores and 7G Memory.
+"27-Nov-23 15:32:43" - create_objects - ERROR - Error in the method - get_spark_object(). Please check the Stack Trace.An error occurred while calling None.org.apache.spark.api.java.JavaSparkContext.
+: org.apache.spark.SparkException: The number of cores per executor (=3) has to be >= the number of cpus per task = 6.
+	at org.apache.spark.resource.ResourceUtils$.validateTaskCpusLargeEnough(ResourceUtils.scala:404)
+	at org.apache.spark.resource.ResourceProfile.calculateTasksAndLimitingResource(ResourceProfile.scala:169)
+	at org.apache.spark.resource.ResourceProfile.$anonfun$limitingResource$1(ResourceProfile.scala:139)
+	at scala.Option.getOrElse(Option.scala:189)
+	at org.apache.spark.resource.ResourceProfile.limitingResource(ResourceProfile.scala:138)
+	at org.apache.spark.resource.ResourceProfileManager.addResourceProfile(ResourceProfileManager.scala:93)
+	at org.apache.spark.resource.ResourceProfileManager.<init>(ResourceProfileManager.scala:49)
+	at org.apache.spark.SparkContext.<init>(SparkContext.scala:449)
+	at org.apache.spark.api.java.JavaSparkContext.<init>(JavaSparkContext.scala:58)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:247)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:357)
+	at py4j.Gateway.invoke(Gateway.java:238)
+	at py4j.commands.ConstructorCommand.invokeConstructor(ConstructorCommand.java:80)
+	at py4j.commands.ConstructorCommand.execute(ConstructorCommand.java:69)
+	at py4j.GatewayConnection.run(GatewayConnection.java:238)
+	at java.lang.Thread.run(Thread.java:750)
+Traceback (most recent call last):
+  File "/home/hadoop/projects/mahzoon/pipeline/pipeline/bin/create_objects.py", line 35, in get_spark_object
+    spark = SparkSession.builder.config(conf=conf).getOrCreate()
+  File "/home/hadoop/test_env/lib64/python3.9/site-packages/pyspark/sql/session.py", line 497, in getOrCreate
+    sc = SparkContext.getOrCreate(sparkConf)
+  File "/home/hadoop/test_env/lib64/python3.9/site-packages/pyspark/context.py", line 515, in getOrCreate
+    SparkContext(conf=conf or SparkConf())
+  File "/home/hadoop/test_env/lib64/python3.9/site-packages/pyspark/context.py", line 203, in __init__
+    self._do_init(
+  File "/home/hadoop/test_env/lib64/python3.9/site-packages/pyspark/context.py", line 296, in _do_init
+    self._jsc = jsc or self._initialize_context(self._conf._jconf)
+  File "/home/hadoop/test_env/lib64/python3.9/site-packages/pyspark/context.py", line 421, in _initialize_context
+    return self._jvm.JavaSparkContext(jconf)
+  File "/home/hadoop/test_env/lib64/python3.9/site-packages/py4j/java_gateway.py", line 1587, in __call__
+    return_value = get_return_value(
+  File "/home/hadoop/test_env/lib64/python3.9/site-packages/py4j/protocol.py", line 326, in get_return_value
+    raise Py4JJavaError(
+py4j.protocol.Py4JJavaError: An error occurred while calling None.org.apache.spark.api.java.JavaSparkContext.
+: org.apache.spark.SparkException: The number of cores per executor (=3) has to be >= the number of cpus per task = 6.
+	at org.apache.spark.resource.ResourceUtils$.validateTaskCpusLargeEnough(ResourceUtils.scala:404)
+	at org.apache.spark.resource.ResourceProfile.calculateTasksAndLimitingResource(ResourceProfile.scala:169)
+	at org.apache.spark.resource.ResourceProfile.$anonfun$limitingResource$1(ResourceProfile.scala:139)
+	at scala.Option.getOrElse(Option.scala:189)
+	at org.apache.spark.resource.ResourceProfile.limitingResource(ResourceProfile.scala:138)
+	at org.apache.spark.resource.ResourceProfileManager.addResourceProfile(ResourceProfileManager.scala:93)
+	at org.apache.spark.resource.ResourceProfileManager.<init>(ResourceProfileManager.scala:49)
+	at org.apache.spark.SparkContext.<init>(SparkContext.scala:449)
+	at org.apache.spark.api.java.JavaSparkContext.<init>(JavaSparkContext.scala:58)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:247)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:357)
+	at py4j.Gateway.invoke(Gateway.java:238)
+	at py4j.commands.ConstructorCommand.invokeConstructor(ConstructorCommand.java:80)
+	at py4j.commands.ConstructorCommand.execute(ConstructorCommand.java:69)
+	at py4j.GatewayConnection.run(GatewayConnection.java:238)
+	at java.lang.Thread.run(Thread.java:750)
+
+"27-Nov-23 15:39:30" - create_objects - INFO - get_spark_object is started with 3 Cores and 7G Memory.
+"27-Nov-23 15:39:30" - create_objects - ERROR - Error in the method - get_spark_object(). Please check the Stack Trace.An error occurred while calling None.org.apache.spark.api.java.JavaSparkContext.
+: org.apache.spark.SparkException: The number of cores per executor (=3) has to be >= the number of cpus per task = 6.
+	at org.apache.spark.resource.ResourceUtils$.validateTaskCpusLargeEnough(ResourceUtils.scala:404)
+	at org.apache.spark.resource.ResourceProfile.calculateTasksAndLimitingResource(ResourceProfile.scala:169)
+	at org.apache.spark.resource.ResourceProfile.$anonfun$limitingResource$1(ResourceProfile.scala:139)
+	at scala.Option.getOrElse(Option.scala:189)
+	at org.apache.spark.resource.ResourceProfile.limitingResource(ResourceProfile.scala:138)
+	at org.apache.spark.resource.ResourceProfileManager.addResourceProfile(ResourceProfileManager.scala:93)
+	at org.apache.spark.resource.ResourceProfileManager.<init>(ResourceProfileManager.scala:49)
+	at org.apache.spark.SparkContext.<init>(SparkContext.scala:449)
+	at org.apache.spark.api.java.JavaSparkContext.<init>(JavaSparkContext.scala:58)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:247)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:357)
+	at py4j.Gateway.invoke(Gateway.java:238)
+	at py4j.commands.ConstructorCommand.invokeConstructor(ConstructorCommand.java:80)
+	at py4j.commands.ConstructorCommand.execute(ConstructorCommand.java:69)
+	at py4j.GatewayConnection.run(GatewayConnection.java:238)
+	at java.lang.Thread.run(Thread.java:750)
+Traceback (most recent call last):
+  File "/home/hadoop/projects/mahzoon/pipeline/pipeline/bin/create_objects.py", line 35, in get_spark_object
+    spark = SparkSession.builder.config(conf=conf).getOrCreate()
+  File "/home/hadoop/test_env/lib64/python3.9/site-packages/pyspark/sql/session.py", line 497, in getOrCreate
+    sc = SparkContext.getOrCreate(sparkConf)
+  File "/home/hadoop/test_env/lib64/python3.9/site-packages/pyspark/context.py", line 515, in getOrCreate
+    SparkContext(conf=conf or SparkConf())
+  File "/home/hadoop/test_env/lib64/python3.9/site-packages/pyspark/context.py", line 203, in __init__
+    self._do_init(
+  File "/home/hadoop/test_env/lib64/python3.9/site-packages/pyspark/context.py", line 296, in _do_init
+    self._jsc = jsc or self._initialize_context(self._conf._jconf)
+  File "/home/hadoop/test_env/lib64/python3.9/site-packages/pyspark/context.py", line 421, in _initialize_context
+    return self._jvm.JavaSparkContext(jconf)
+  File "/home/hadoop/test_env/lib64/python3.9/site-packages/py4j/java_gateway.py", line 1587, in __call__
+    return_value = get_return_value(
+  File "/home/hadoop/test_env/lib64/python3.9/site-packages/py4j/protocol.py", line 326, in get_return_value
+    raise Py4JJavaError(
+py4j.protocol.Py4JJavaError: An error occurred while calling None.org.apache.spark.api.java.JavaSparkContext.
+: org.apache.spark.SparkException: The number of cores per executor (=3) has to be >= the number of cpus per task = 6.
+	at org.apache.spark.resource.ResourceUtils$.validateTaskCpusLargeEnough(ResourceUtils.scala:404)
+	at org.apache.spark.resource.ResourceProfile.calculateTasksAndLimitingResource(ResourceProfile.scala:169)
+	at org.apache.spark.resource.ResourceProfile.$anonfun$limitingResource$1(ResourceProfile.scala:139)
+	at scala.Option.getOrElse(Option.scala:189)
+	at org.apache.spark.resource.ResourceProfile.limitingResource(ResourceProfile.scala:138)
+	at org.apache.spark.resource.ResourceProfileManager.addResourceProfile(ResourceProfileManager.scala:93)
+	at org.apache.spark.resource.ResourceProfileManager.<init>(ResourceProfileManager.scala:49)
+	at org.apache.spark.SparkContext.<init>(SparkContext.scala:449)
+	at org.apache.spark.api.java.JavaSparkContext.<init>(JavaSparkContext.scala:58)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:247)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:357)
+	at py4j.Gateway.invoke(Gateway.java:238)
+	at py4j.commands.ConstructorCommand.invokeConstructor(ConstructorCommand.java:80)
+	at py4j.commands.ConstructorCommand.execute(ConstructorCommand.java:69)
+	at py4j.GatewayConnection.run(GatewayConnection.java:238)
+	at java.lang.Thread.run(Thread.java:750)
+
+"27-Nov-23 15:40:00" - create_objects - INFO - get_spark_object is started with 6 Cores and 7G Memory.
+"27-Nov-23 15:40:09" - create_objects - ERROR - Error in the method - get_spark_object(). Please check the Stack Trace.An error occurred while calling None.org.apache.spark.api.java.JavaSparkContext.
+: org.apache.spark.SparkException: Application application_1683200363976_0078 failed 2 times due to AM Container for appattempt_1683200363976_0078_000002 exited with  exitCode: -1000
+Failing this attempt.Diagnostics: [2023-11-27 15:40:38.662]Failed to download resource { { hdfs://imen-spark-master.css.ir:9000/spark-jars/scala-library-2.12.10.jar, 1672728571088, FILE, null },pending,[(container_1683200363976_0078_02_000001)],19977982640472555,DOWNLOADING} java.io.FileNotFoundException: File /tmp/hadoop-hadoop/nm-local-dir/filecache does not exist
+For more detailed output, check the application tracking page: http://imen-spark-master.css.ir:8088/cluster/app/application_1683200363976_0078 Then click on links to logs of each attempt.
+. Failing the application.
+	at org.apache.spark.scheduler.cluster.YarnClientSchedulerBackend.waitForApplication(YarnClientSchedulerBackend.scala:97)
+	at org.apache.spark.scheduler.cluster.YarnClientSchedulerBackend.start(YarnClientSchedulerBackend.scala:64)
+	at org.apache.spark.scheduler.TaskSchedulerImpl.start(TaskSchedulerImpl.scala:220)
+	at org.apache.spark.SparkContext.<init>(SparkContext.scala:579)
+	at org.apache.spark.api.java.JavaSparkContext.<init>(JavaSparkContext.scala:58)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:247)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:357)
+	at py4j.Gateway.invoke(Gateway.java:238)
+	at py4j.commands.ConstructorCommand.invokeConstructor(ConstructorCommand.java:80)
+	at py4j.commands.ConstructorCommand.execute(ConstructorCommand.java:69)
+	at py4j.GatewayConnection.run(GatewayConnection.java:238)
+	at java.lang.Thread.run(Thread.java:750)
+Traceback (most recent call last):
+  File "/home/hadoop/projects/mahzoon/pipeline/pipeline/bin/create_objects.py", line 35, in get_spark_object
+    spark = SparkSession.builder.config(conf=conf).getOrCreate()
+  File "/home/hadoop/test_env/lib64/python3.9/site-packages/pyspark/sql/session.py", line 497, in getOrCreate
+    sc = SparkContext.getOrCreate(sparkConf)
+  File "/home/hadoop/test_env/lib64/python3.9/site-packages/pyspark/context.py", line 515, in getOrCreate
+    SparkContext(conf=conf or SparkConf())
+  File "/home/hadoop/test_env/lib64/python3.9/site-packages/pyspark/context.py", line 203, in __init__
+    self._do_init(
+  File "/home/hadoop/test_env/lib64/python3.9/site-packages/pyspark/context.py", line 296, in _do_init
+    self._jsc = jsc or self._initialize_context(self._conf._jconf)
+  File "/home/hadoop/test_env/lib64/python3.9/site-packages/pyspark/context.py", line 421, in _initialize_context
+    return self._jvm.JavaSparkContext(jconf)
+  File "/home/hadoop/test_env/lib64/python3.9/site-packages/py4j/java_gateway.py", line 1587, in __call__
+    return_value = get_return_value(
+  File "/home/hadoop/test_env/lib64/python3.9/site-packages/py4j/protocol.py", line 326, in get_return_value
+    raise Py4JJavaError(
+py4j.protocol.Py4JJavaError: An error occurred while calling None.org.apache.spark.api.java.JavaSparkContext.
+: org.apache.spark.SparkException: Application application_1683200363976_0078 failed 2 times due to AM Container for appattempt_1683200363976_0078_000002 exited with  exitCode: -1000
+Failing this attempt.Diagnostics: [2023-11-27 15:40:38.662]Failed to download resource { { hdfs://imen-spark-master.css.ir:9000/spark-jars/scala-library-2.12.10.jar, 1672728571088, FILE, null },pending,[(container_1683200363976_0078_02_000001)],19977982640472555,DOWNLOADING} java.io.FileNotFoundException: File /tmp/hadoop-hadoop/nm-local-dir/filecache does not exist
+For more detailed output, check the application tracking page: http://imen-spark-master.css.ir:8088/cluster/app/application_1683200363976_0078 Then click on links to logs of each attempt.
+. Failing the application.
+	at org.apache.spark.scheduler.cluster.YarnClientSchedulerBackend.waitForApplication(YarnClientSchedulerBackend.scala:97)
+	at org.apache.spark.scheduler.cluster.YarnClientSchedulerBackend.start(YarnClientSchedulerBackend.scala:64)
+	at org.apache.spark.scheduler.TaskSchedulerImpl.start(TaskSchedulerImpl.scala:220)
+	at org.apache.spark.SparkContext.<init>(SparkContext.scala:579)
+	at org.apache.spark.api.java.JavaSparkContext.<init>(JavaSparkContext.scala:58)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:247)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:357)
+	at py4j.Gateway.invoke(Gateway.java:238)
+	at py4j.commands.ConstructorCommand.invokeConstructor(ConstructorCommand.java:80)
+	at py4j.commands.ConstructorCommand.execute(ConstructorCommand.java:69)
+	at py4j.GatewayConnection.run(GatewayConnection.java:238)
+	at java.lang.Thread.run(Thread.java:750)
+
+"27-Nov-23 15:40:58" - create_objects - INFO - get_spark_object is started with 6 Cores and 7G Memory.
+"27-Nov-23 15:40:59" - create_objects - ERROR - Error in the method - get_spark_object(). Please check the Stack Trace.An error occurred while calling None.org.apache.spark.api.java.JavaSparkContext.
+: org.apache.spark.SparkException: Application application_1683200363976_0079 failed 2 times due to AM Container for appattempt_1683200363976_0079_000002 exited with  exitCode: -1000
+Failing this attempt.Diagnostics: [2023-11-27 15:41:28.870]Failed to download resource { { hdfs://imen-spark-master.css.ir:9000/spark-jars/scala-library-2.12.10.jar, 1672728571088, FILE, null },pending,[(container_1683200363976_0079_02_000001)],19978033094123673,DOWNLOADING} java.io.FileNotFoundException: File /tmp/hadoop-hadoop/nm-local-dir/filecache does not exist
+For more detailed output, check the application tracking page: http://imen-spark-master.css.ir:8088/cluster/app/application_1683200363976_0079 Then click on links to logs of each attempt.
+. Failing the application.
+	at org.apache.spark.scheduler.cluster.YarnClientSchedulerBackend.waitForApplication(YarnClientSchedulerBackend.scala:97)
+	at org.apache.spark.scheduler.cluster.YarnClientSchedulerBackend.start(YarnClientSchedulerBackend.scala:64)
+	at org.apache.spark.scheduler.TaskSchedulerImpl.start(TaskSchedulerImpl.scala:220)
+	at org.apache.spark.SparkContext.<init>(SparkContext.scala:579)
+	at org.apache.spark.api.java.JavaSparkContext.<init>(JavaSparkContext.scala:58)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:247)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:357)
+	at py4j.Gateway.invoke(Gateway.java:238)
+	at py4j.commands.ConstructorCommand.invokeConstructor(ConstructorCommand.java:80)
+	at py4j.commands.ConstructorCommand.execute(ConstructorCommand.java:69)
+	at py4j.GatewayConnection.run(GatewayConnection.java:238)
+	at java.lang.Thread.run(Thread.java:750)
+Traceback (most recent call last):
+  File "/home/hadoop/projects/mahzoon/pipeline/pipeline/bin/create_objects.py", line 35, in get_spark_object
+    spark = SparkSession.builder.config(conf=conf).getOrCreate()
+  File "/home/hadoop/test_env/lib64/python3.9/site-packages/pyspark/sql/session.py", line 497, in getOrCreate
+    sc = SparkContext.getOrCreate(sparkConf)
+  File "/home/hadoop/test_env/lib64/python3.9/site-packages/pyspark/context.py", line 515, in getOrCreate
+    SparkContext(conf=conf or SparkConf())
+  File "/home/hadoop/test_env/lib64/python3.9/site-packages/pyspark/context.py", line 203, in __init__
+    self._do_init(
+  File "/home/hadoop/test_env/lib64/python3.9/site-packages/pyspark/context.py", line 296, in _do_init
+    self._jsc = jsc or self._initialize_context(self._conf._jconf)
+  File "/home/hadoop/test_env/lib64/python3.9/site-packages/pyspark/context.py", line 421, in _initialize_context
+    return self._jvm.JavaSparkContext(jconf)
+  File "/home/hadoop/test_env/lib64/python3.9/site-packages/py4j/java_gateway.py", line 1587, in __call__
+    return_value = get_return_value(
+  File "/home/hadoop/test_env/lib64/python3.9/site-packages/py4j/protocol.py", line 326, in get_return_value
+    raise Py4JJavaError(
+py4j.protocol.Py4JJavaError: An error occurred while calling None.org.apache.spark.api.java.JavaSparkContext.
+: org.apache.spark.SparkException: Application application_1683200363976_0079 failed 2 times due to AM Container for appattempt_1683200363976_0079_000002 exited with  exitCode: -1000
+Failing this attempt.Diagnostics: [2023-11-27 15:41:28.870]Failed to download resource { { hdfs://imen-spark-master.css.ir:9000/spark-jars/scala-library-2.12.10.jar, 1672728571088, FILE, null },pending,[(container_1683200363976_0079_02_000001)],19978033094123673,DOWNLOADING} java.io.FileNotFoundException: File /tmp/hadoop-hadoop/nm-local-dir/filecache does not exist
+For more detailed output, check the application tracking page: http://imen-spark-master.css.ir:8088/cluster/app/application_1683200363976_0079 Then click on links to logs of each attempt.
+. Failing the application.
+	at org.apache.spark.scheduler.cluster.YarnClientSchedulerBackend.waitForApplication(YarnClientSchedulerBackend.scala:97)
+	at org.apache.spark.scheduler.cluster.YarnClientSchedulerBackend.start(YarnClientSchedulerBackend.scala:64)
+	at org.apache.spark.scheduler.TaskSchedulerImpl.start(TaskSchedulerImpl.scala:220)
+	at org.apache.spark.SparkContext.<init>(SparkContext.scala:579)
+	at org.apache.spark.api.java.JavaSparkContext.<init>(JavaSparkContext.scala:58)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:247)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:357)
+	at py4j.Gateway.invoke(Gateway.java:238)
+	at py4j.commands.ConstructorCommand.invokeConstructor(ConstructorCommand.java:80)
+	at py4j.commands.ConstructorCommand.execute(ConstructorCommand.java:69)
+	at py4j.GatewayConnection.run(GatewayConnection.java:238)
+	at java.lang.Thread.run(Thread.java:750)
+
+"27-Nov-23 15:41:19" - create_objects - INFO - get_spark_object is started with 6 Cores and 7G Memory.
+"27-Nov-23 15:41:22" - create_objects - ERROR - Error in the method - get_spark_object(). Please check the Stack Trace.An error occurred while calling None.org.apache.spark.sql.SparkSession. Trace:
+py4j.Py4JException: Constructor org.apache.spark.sql.SparkSession([class org.apache.spark.SparkContext, class java.util.HashMap]) does not exist
+	at py4j.reflection.ReflectionEngine.getConstructor(ReflectionEngine.java:179)
+	at py4j.reflection.ReflectionEngine.getConstructor(ReflectionEngine.java:196)
+	at py4j.Gateway.invoke(Gateway.java:237)
+	at py4j.commands.ConstructorCommand.invokeConstructor(ConstructorCommand.java:80)
+	at py4j.commands.ConstructorCommand.execute(ConstructorCommand.java:69)
+	at py4j.GatewayConnection.run(GatewayConnection.java:238)
+	at java.lang.Thread.run(Thread.java:750)
+
+Traceback (most recent call last):
+  File "/home/hadoop/projects/mahzoon/pipeline/pipeline/bin/create_objects.py", line 35, in get_spark_object
+    spark = SparkSession.builder.config(conf=conf).getOrCreate()
+  File "/home/hadoop/test_env/lib64/python3.9/site-packages/pyspark/sql/session.py", line 500, in getOrCreate
+    session = SparkSession(sc, options=self._options)
+  File "/home/hadoop/test_env/lib64/python3.9/site-packages/pyspark/sql/session.py", line 589, in __init__
+    jsparkSession = self._jvm.SparkSession(self._jsc.sc(), options)
+  File "/home/hadoop/test_env/lib64/python3.9/site-packages/py4j/java_gateway.py", line 1587, in __call__
+    return_value = get_return_value(
+  File "/home/hadoop/test_env/lib64/python3.9/site-packages/py4j/protocol.py", line 330, in get_return_value
+    raise Py4JError(
+py4j.protocol.Py4JError: An error occurred while calling None.org.apache.spark.sql.SparkSession. Trace:
+py4j.Py4JException: Constructor org.apache.spark.sql.SparkSession([class org.apache.spark.SparkContext, class java.util.HashMap]) does not exist
+	at py4j.reflection.ReflectionEngine.getConstructor(ReflectionEngine.java:179)
+	at py4j.reflection.ReflectionEngine.getConstructor(ReflectionEngine.java:196)
+	at py4j.Gateway.invoke(Gateway.java:237)
+	at py4j.commands.ConstructorCommand.invokeConstructor(ConstructorCommand.java:80)
+	at py4j.commands.ConstructorCommand.execute(ConstructorCommand.java:69)
+	at py4j.GatewayConnection.run(GatewayConnection.java:238)
+	at java.lang.Thread.run(Thread.java:750)
+
+
+"27-Nov-23 15:44:59" - create_objects - INFO - get_spark_object is started with 6 Cores and 7G Memory.
+"27-Nov-23 15:44:59" - create_objects - ERROR - Error in the method - get_spark_object(). Please check the Stack Trace.An error occurred while calling None.org.apache.spark.sql.SparkSession. Trace:
+py4j.Py4JException: Constructor org.apache.spark.sql.SparkSession([class org.apache.spark.SparkContext, class java.util.HashMap]) does not exist
+	at py4j.reflection.ReflectionEngine.getConstructor(ReflectionEngine.java:179)
+	at py4j.reflection.ReflectionEngine.getConstructor(ReflectionEngine.java:196)
+	at py4j.Gateway.invoke(Gateway.java:237)
+	at py4j.commands.ConstructorCommand.invokeConstructor(ConstructorCommand.java:80)
+	at py4j.commands.ConstructorCommand.execute(ConstructorCommand.java:69)
+	at py4j.GatewayConnection.run(GatewayConnection.java:238)
+	at java.lang.Thread.run(Thread.java:750)
+
+Traceback (most recent call last):
+  File "/home/hadoop/projects/mahzoon/pipeline/pipeline/bin/create_objects.py", line 35, in get_spark_object
+    spark = SparkSession.builder.config(conf=conf).getOrCreate()
+  File "/home/hadoop/test_env/lib64/python3.9/site-packages/pyspark/sql/session.py", line 500, in getOrCreate
+    session = SparkSession(sc, options=self._options)
+  File "/home/hadoop/test_env/lib64/python3.9/site-packages/pyspark/sql/session.py", line 589, in __init__
+    jsparkSession = self._jvm.SparkSession(self._jsc.sc(), options)
+  File "/home/hadoop/test_env/lib64/python3.9/site-packages/py4j/java_gateway.py", line 1587, in __call__
+    return_value = get_return_value(
+  File "/home/hadoop/test_env/lib64/python3.9/site-packages/py4j/protocol.py", line 330, in get_return_value
+    raise Py4JError(
+py4j.protocol.Py4JError: An error occurred while calling None.org.apache.spark.sql.SparkSession. Trace:
+py4j.Py4JException: Constructor org.apache.spark.sql.SparkSession([class org.apache.spark.SparkContext, class java.util.HashMap]) does not exist
+	at py4j.reflection.ReflectionEngine.getConstructor(ReflectionEngine.java:179)
+	at py4j.reflection.ReflectionEngine.getConstructor(ReflectionEngine.java:196)
+	at py4j.Gateway.invoke(Gateway.java:237)
+	at py4j.commands.ConstructorCommand.invokeConstructor(ConstructorCommand.java:80)
+	at py4j.commands.ConstructorCommand.execute(ConstructorCommand.java:69)
+	at py4j.GatewayConnection.run(GatewayConnection.java:238)
+	at java.lang.Thread.run(Thread.java:750)
+
+
+"27-Nov-23 15:45:39" - create_objects - INFO - get_spark_object is started with 6 Cores and 7G Memory.
+"27-Nov-23 15:45:42" - create_objects - ERROR - Error in the method - get_spark_object(). Please check the Stack Trace.An error occurred while calling None.org.apache.spark.sql.SparkSession. Trace:
+py4j.Py4JException: Constructor org.apache.spark.sql.SparkSession([class org.apache.spark.SparkContext, class java.util.HashMap]) does not exist
+	at py4j.reflection.ReflectionEngine.getConstructor(ReflectionEngine.java:179)
+	at py4j.reflection.ReflectionEngine.getConstructor(ReflectionEngine.java:196)
+	at py4j.Gateway.invoke(Gateway.java:237)
+	at py4j.commands.ConstructorCommand.invokeConstructor(ConstructorCommand.java:80)
+	at py4j.commands.ConstructorCommand.execute(ConstructorCommand.java:69)
+	at py4j.GatewayConnection.run(GatewayConnection.java:238)
+	at java.lang.Thread.run(Thread.java:750)
+
+Traceback (most recent call last):
+  File "/home/hadoop/projects/mahzoon/pipeline/pipeline/bin/create_objects.py", line 35, in get_spark_object
+    spark = SparkSession.builder.config(conf=conf).getOrCreate()
+  File "/home/hadoop/test_env/lib64/python3.9/site-packages/pyspark/sql/session.py", line 500, in getOrCreate
+    session = SparkSession(sc, options=self._options)
+  File "/home/hadoop/test_env/lib64/python3.9/site-packages/pyspark/sql/session.py", line 589, in __init__
+    jsparkSession = self._jvm.SparkSession(self._jsc.sc(), options)
+  File "/home/hadoop/test_env/lib64/python3.9/site-packages/py4j/java_gateway.py", line 1587, in __call__
+    return_value = get_return_value(
+  File "/home/hadoop/test_env/lib64/python3.9/site-packages/py4j/protocol.py", line 330, in get_return_value
+    raise Py4JError(
+py4j.protocol.Py4JError: An error occurred while calling None.org.apache.spark.sql.SparkSession. Trace:
+py4j.Py4JException: Constructor org.apache.spark.sql.SparkSession([class org.apache.spark.SparkContext, class java.util.HashMap]) does not exist
+	at py4j.reflection.ReflectionEngine.getConstructor(ReflectionEngine.java:179)
+	at py4j.reflection.ReflectionEngine.getConstructor(ReflectionEngine.java:196)
+	at py4j.Gateway.invoke(Gateway.java:237)
+	at py4j.commands.ConstructorCommand.invokeConstructor(ConstructorCommand.java:80)
+	at py4j.commands.ConstructorCommand.execute(ConstructorCommand.java:69)
+	at py4j.GatewayConnection.run(GatewayConnection.java:238)
+	at java.lang.Thread.run(Thread.java:750)
+
+
+"27-Nov-23 15:51:07" - __main__ - INFO - get_spark_object is started with 6 Cores and 7G Memory.
+"27-Nov-23 15:51:07" - __main__ - ERROR - Error in the method - get_spark_object(). Please check the Stack Trace.An error occurred while calling None.org.apache.spark.sql.SparkSession. Trace:
+py4j.Py4JException: Constructor org.apache.spark.sql.SparkSession([class org.apache.spark.SparkContext, class java.util.HashMap]) does not exist
+	at py4j.reflection.ReflectionEngine.getConstructor(ReflectionEngine.java:179)
+	at py4j.reflection.ReflectionEngine.getConstructor(ReflectionEngine.java:196)
+	at py4j.Gateway.invoke(Gateway.java:237)
+	at py4j.commands.ConstructorCommand.invokeConstructor(ConstructorCommand.java:80)
+	at py4j.commands.ConstructorCommand.execute(ConstructorCommand.java:69)
+	at py4j.GatewayConnection.run(GatewayConnection.java:238)
+	at java.lang.Thread.run(Thread.java:750)
+
+Traceback (most recent call last):
+  File "/tmp/ipykernel_1945973/3786638251.py", line 28, in get_spark_object
+    spark = SparkSession.builder.config(conf=conf).getOrCreate()
+  File "/home/hadoop/test_env/lib64/python3.9/site-packages/pyspark/sql/session.py", line 500, in getOrCreate
+    session = SparkSession(sc, options=self._options)
+  File "/home/hadoop/test_env/lib64/python3.9/site-packages/pyspark/sql/session.py", line 589, in __init__
+    jsparkSession = self._jvm.SparkSession(self._jsc.sc(), options)
+  File "/home/hadoop/test_env/lib64/python3.9/site-packages/py4j/java_gateway.py", line 1587, in __call__
+    return_value = get_return_value(
+  File "/home/hadoop/test_env/lib64/python3.9/site-packages/py4j/protocol.py", line 330, in get_return_value
+    raise Py4JError(
+py4j.protocol.Py4JError: An error occurred while calling None.org.apache.spark.sql.SparkSession. Trace:
+py4j.Py4JException: Constructor org.apache.spark.sql.SparkSession([class org.apache.spark.SparkContext, class java.util.HashMap]) does not exist
+	at py4j.reflection.ReflectionEngine.getConstructor(ReflectionEngine.java:179)
+	at py4j.reflection.ReflectionEngine.getConstructor(ReflectionEngine.java:196)
+	at py4j.Gateway.invoke(Gateway.java:237)
+	at py4j.commands.ConstructorCommand.invokeConstructor(ConstructorCommand.java:80)
+	at py4j.commands.ConstructorCommand.execute(ConstructorCommand.java:69)
+	at py4j.GatewayConnection.run(GatewayConnection.java:238)
+	at java.lang.Thread.run(Thread.java:750)
+
+
+"27-Nov-23 15:51:43" - __main__ - INFO - get_spark_object is started with 6 Cores and 7G Memory.
+"27-Nov-23 15:51:48" - __main__ - INFO - Spark Object is created ...
+"27-Nov-23 16:49:28" - __main__ - INFO - get_spark_object is started with 6 Cores and 7G Memory.
+"27-Nov-23 16:49:37" - __main__ - ERROR - Error in the method - get_spark_object(). Please check the Stack Trace.Java gateway process exited before sending its port number
+Traceback (most recent call last):
+  File "/tmp/ipykernel_2057170/3625831908.py", line 31, in get_spark_object
+    spark = SparkSession.builder.config(conf=conf).getOrCreate()
+  File "/opt/spark/python/pyspark/sql/session.py", line 228, in getOrCreate
+    sc = SparkContext.getOrCreate(sparkConf)
+  File "/opt/spark/python/pyspark/context.py", line 384, in getOrCreate
+    SparkContext(conf=conf or SparkConf())
+  File "/opt/spark/python/pyspark/context.py", line 144, in __init__
+    SparkContext._ensure_initialized(self, gateway=gateway, conf=conf)
+  File "/opt/spark/python/pyspark/context.py", line 331, in _ensure_initialized
+    SparkContext._gateway = gateway or launch_gateway(conf)
+  File "/opt/spark/python/pyspark/java_gateway.py", line 108, in launch_gateway
+    raise Exception("Java gateway process exited before sending its port number")
+Exception: Java gateway process exited before sending its port number
+"27-Nov-23 18:06:07" - __main__ - INFO - get_spark_object is started with 6 Cores and 7G Memory.
+"27-Nov-23 18:06:12" - __main__ - INFO - Spark Object is created ...

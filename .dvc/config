@@ -1,0 +1,5 @@
+[core]
+    remote = tmp
+    autostage = true
+['remote "tmp"']
+    url = /home/hadoop/projects/mahzoon/pipeline/pipeline/bin/data
